@@ -1,40 +1,55 @@
+const slider = document.getElementById('slider');
 const handle = document.getElementById('sliderHandle');
-const track = document.querySelector('.slider-track');
 const text = document.getElementById('sliderText');
+const sliderBtn = document.getElementById('swapBtn');
 
-let dragging = false;
+let isDragging = false;
 let startX = 0;
-let startLeft = 0;
+let offsetX = 0;
 
 handle.addEventListener('pointerdown', (e) => {
-  dragging = true;
+  isDragging = true;
   startX = e.clientX;
-  startLeft = handle.offsetLeft;
+  offsetX = handle.offsetLeft;
   handle.setPointerCapture(e.pointerId);
+  handle.style.transition = 'none';
 });
 
 document.addEventListener('pointermove', (e) => {
-  if (!dragging) return;
+  if (!isDragging) return;
   
-  const maxLeft = track.clientWidth - handle.offsetWidth - 8;
-  const newLeft = Math.max(8, Math.min(startLeft + (e.clientX - startX), maxLeft));
+  const maxDistance = slider.clientWidth - handle.offsetWidth - 8;
+  let newLeft = offsetX + (e.clientX - startX);
+  newLeft = Math.max(8, Math.min(newLeft, maxDistance));
+  
   handle.style.left = newLeft + 'px';
 });
 
 document.addEventListener('pointerup', () => {
-  if (!dragging) return;
-  dragging = false;
+  if (!isDragging) return;
+  isDragging = false;
+  handle.style.transition = 'left 0.3s ease';
   
-  const maxLeft = track.clientWidth - handle.offsetWidth - 8;
-  const threshold = maxLeft * 0.75;
+  const maxDistance = slider.clientWidth - handle.offsetWidth - 8;
+  const threshold = maxDistance * 0.8;
   
   if (handle.offsetLeft >= threshold) {
-    handle.style.left = maxLeft + 'px';
+    handle.style.left = maxDistance + 'px';
     text.textContent = 'Swap Complete';
-    track.style.background = '#2a2a2a';
+    slider.style.background = '#2a2a2a';
+    sliderBtn.disabled = true;
   } else {
     handle.style.left = '8px';
     text.textContent = 'Slide to Swap';
-    track.style.background = '#1a1a1a';
+    slider.style.background = '#1a1a1a';
+    sliderBtn.disabled = false;
   }
+});
+
+sliderBtn.addEventListener('click', () => {
+  handle.style.transition = 'left 0.3s ease';
+  handle.style.left = '8px';
+  text.textContent = 'Slide to Swap';
+  slider.style.background = '#1a1a1a';
+  sliderBtn.disabled = false;
 });
