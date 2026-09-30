@@ -1,4 +1,58 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Portfolio</title><style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;font-family:Arial,Helvetica,sans-serif;-webkit-tap-highlight-color:transparent}body{background:#dfe6f8}main{min-height:100vh;padding-bottom:105px}.content{height:calc(100vh - 105px);display:grid;place-items:center;font-size:46px;font-weight:700;color:#111}.bottom-nav{position:fixed;left:0;right:0;bottom:0;height:105px;padding:8px 24px max(10px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);align-items:end;background:#111a24;pointer-events:none}.nav-item{height:82px;display:flex;align-items:center;justify-content:flex-end;flex-direction:column;gap:7px;color:#9ca5b7;font-size:15px;line-height:1;pointer-events:none}.nav-item svg{width:42px;height:42px;display:block;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.nav-item.active{color:#f4f7ff}@media(max-width:380px){.bottom-nav{padding-left:10px;padding-right:10px}.nav-item{font-size:13px}}
-</style></head><body><main><section class="content">Portfolio</section><nav class="bottom-nav"><span class="nav-item"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><path d="M10 13h12l-3-3m3 9H10l3 3"/></svg></span><span class="nav-item"><svg viewBox="0 0 32 32"><path d="M8 12h16M8 20h16M12 8v16M20 8v16"/></svg></span><span class="nav-item"><svg viewBox="0 0 32 32"><path d="M6 22c4-8 7 4 11-4s5-8 9-8M6 26h20"/></svg></span><span class="nav-item active"><svg viewBox="0 0 32 32"><rect x="6" y="6" width="20" height="20" rx="2"/><path d="m10 21 4-5 3 3 5-7"/></svg></span><span class="nav-item"><svg viewBox="0 0 32 32"><path d="M13 5h6l1 4 3 2 4-1 3 5-3 3v4l3 3-3 5-4-1-3 2-1 4h-6l-1-4-3-2-4 1-3-5 3-3v-4l-3-3 3-5 4 1 3-2z" transform="scale(.72) translate(6 6)"/><circle cx="16" cy="16" r="3"/></svg></span></nav></main></body></html>
+<html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Portfolio</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#dfe6f8}
+body{padding-bottom:120px}
+.header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:#dfe6f8}
+.header-left{display:flex;align-items:center;gap:12px}
+.avatar{width:40px;height:40px;border-radius:50%;background:#ccc;position:relative}
+.badge{position:absolute;bottom:-4px;right:-4px;width:24px;height:24px;background:#ff6b6b;border:2px solid white;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:bold}
+.wallet-addr{display:flex;align-items:center;gap:6px;font-weight:600;color:#111;font-size:14px}
+.wallet-icon{width:20px;height:20px;background:#1e88e5;border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:bold}
+.header-right{display:flex;gap:12px}
+.icon-btn{width:40px;height:40px;border-radius:50%;background:#333;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:white;font-size:18px}
+.main-content{padding:20px;text-align:center;padding-top:100px}
+.title{font-size:48px;font-weight:700;color:#111;margin-bottom:30px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:100px;background:white;border-top:1px solid #eee;display:grid;grid-template-columns:repeat(5,1fr);align-items:center;justify-items:center;padding-bottom:max(10px,env(safe-area-inset-bottom))}
+.nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#9ca5b7;font-size:12px;font-weight:500;text-decoration:none;cursor:default}
+.nav-item.active{color:#111}
+.nav-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:20px}
+</style></head><body>
+<div class="header">
+<div class="header-left">
+<div class="avatar"><div class="badge">8</div></div>
+<div class="wallet-addr"><div class="wallet-icon">C</div>0xfK07...8336<span style="color:#9ca5b7;font-size:12px">▼</span></div>
+</div>
+<div class="header-right">
+<button class="icon-btn" style="background:#444">🔍</button>
+<button class="icon-btn">✕</button>
+</div>
+</div>
+
+<div class="main-content">
+<div class="title">Portfolio</div>
+</div>
+
+<nav class="bottom-nav">
+<div class="nav-item">
+<div class="nav-icon">⚙️</div>
+<span>Stake</span>
+</div>
+<div class="nav-item active">
+<div class="nav-icon">◈</div>
+<span>Portfolio</span>
+</div>
+<div class="nav-item">
+<div class="nav-icon">⇅</div>
+<span>Swap</span>
+</div>
+<div class="nav-item">
+<div class="nav-icon">📊</div>
+<span>Liquidity</span>
+</div>
+<div class="nav-item">
+<div class="nav-icon">⚙️</div>
+<span>Settings</span>
+</div>
+</nav>
+</body></html>
