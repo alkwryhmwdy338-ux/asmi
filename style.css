@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #dfe6f8;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 105px;
+}
+
+.placeholder {
+  height: calc(100vh - 105px);
+  display: grid;
+  place-items: center;
+  color: #111;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 104px;
+  padding: 13px 14px max(13px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  background: rgba(223, 230, 248, 0.98);
+  z-index: 100;
+}
+
+.nav-item {
+  height: 78px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  color: #9aa3b5;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav-item.active {
+  color: #111;
+}
+
+.icon {
+  width: 27px;
+  height: 27px;
+  position: relative;
+  display: block;
+  color: #9aa3b5;
+}
+
+/* Stake */
+.stake-icon {
+  border: 7px solid #9aa3b5;
+  border-radius: 50%;
+}
+.stake-icon span {
+  width: 10px;
+  height: 10px;
+  background: #9aa3b5;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 2px;
+  top: 2px;
+}
+
+/* Portfolio */
+.portfolio-icon {
+  display: grid;
+  grid-template-columns: repeat(2, 11px);
+  grid-template-rows: repeat(2, 11px);
+  gap: 3px;
+  width: 25px;
+  height: 25px;
+}
+.portfolio-icon i {
+  display: block;
+  background: #9aa3b5;
+  border-radius: 50%;
+}
+
+/* Liquidity */
+.liquidity-icon {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 4px;
+}
+.liquidity-icon i {
+  display: block;
+  width: 6px;
+  background: #9aa3b5;
+  border-radius: 5px;
+}
+.liquidity-icon i:nth-child(1) { height: 15px; }
+.liquidity-icon i:nth-child(2) { height: 25px; }
+.liquidity-icon i:nth-child(3) { height: 20px; }
+
+/* Settings */
+.settings-icon {
+  border: 7px solid #9aa3b5;
+  border-radius: 8px;
+  width: 27px;
+  height: 27px;
+  font-size: 0;
+}
+.settings-icon::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: #dfe6f8;
+}
+
+/* Center Swap */
+.active-icon {
+  width: 62px;
+  height: 62px;
+  margin-bottom: -1px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: #111;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(0,0,0,.03);
+}
+
+@media (max-width: 380px) {
+  .bottom-nav {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .nav-item {
+    font-size: 11px;
+  }
+}
