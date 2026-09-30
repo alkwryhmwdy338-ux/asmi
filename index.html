@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الأيقونات</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#e9eef7;color:#222;padding:24px}.wrap{max-width:700px;margin:auto}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.item{background:#fff;border-radius:20px;padding:22px;text-align:center;box-shadow:0 4px 16px #0001}.icon{height:72px;display:flex;align-items:center;justify-content:center}.icon svg{width:52px;height:52px}.name{margin-top:10px;font-size:16px;font-weight:700}@media(max-width:500px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+<script src="icons/home.js"></script><script src="icons/swap.js"></script><script src="icons/wallet.js"></script><script src="icons/search.js"></script><script src="icons/close.js"></script><script src="icons/stake.js"></script><script src="icons/portfolio.js"></script><script src="icons/liquidity.js"></script><script src="icons/settings.js"></script>
+</head><body><div class="wrap"><h1>الأيقونات</h1><div id="grid" class="grid"></div></div>
+<script>
+const icons=[['home','Home'],['swap','Swap'],['wallet','Wallet'],['search','Search'],['close','Close'],['stake','Stake'],['portfolio','Portfolio'],['liquidity','Liquidity'],['settings','Settings']];
+const grid=document.getElementById('grid');
+icons.forEach(([key,label])=>{const d=document.createElement('div');d.className='item';d.innerHTML='<div class="icon">'+window.ICONS[key]+'</div><div class="name">'+label+'</div>';grid.appendChild(d)});
+</script></body></html>
