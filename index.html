@@ -1,170 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swap UI</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="phone-shell">
-      <header class="status-bar">
-        <div class="left-status">
-          <span class="signal signal-1"></span>
-          <span class="signal signal-2"></span>
-          <span class="signal signal-3"></span>
-          <span class="signal signal-4"></span>
-        </div>
-        <div class="status-time">9:27</div>
-        <div class="right-status">
-          <span class="icon wifi"></span>
-          <span class="icon battery"></span>
-        </div>
-      </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Swap</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="account"><span class="face"></span><span class="badge">8</span></div>
+      <div class="address"><span class="coin blue">C</span><b>0xfK07...8336</b><span class="chevron">⌄</span></div>
+      <button class="wallet" aria-label="Wallet">▣<small>●</small></button>
+    </header>
 
-      <div class="browser-bar">
-        <div class="browser-actions">
-          <button class="nav-btn menu-btn" aria-label="Menu">
-            <span></span><span></span><span></span>
-          </button>
-          <button class="nav-btn add-btn" aria-label="Add">
-            <span>+</span>
-          </button>
-        </div>
+    <div class="tools"><button aria-label="Zoom out">⌕</button><button aria-label="Close">×</button></div>
+    <h1>Swap</h1>
 
-        <div class="address-box">
-          <span class="address-lock">◌</span>
-          <span class="address-text">dribbble.com/shc</span>
-        </div>
-
-        <button class="nav-btn home-btn" aria-label="Home">
-          <span class="home-icon"></span>
-        </button>
+    <section class="swap-card">
+      <div class="label-line"><span>You Pay</span><span class="balance">▣ 52.34 BNB <b>Max</b></span></div>
+      <div class="token-line">
+        <div class="token"><span class="token-logo bnb">◆</span><strong>BNB</strong><span>⌄</span></div>
+        <div class="numbers"><strong>0.01</strong><small>≈ 6,247.70 USD</small></div>
       </div>
+    </section>
 
-      <main class="app-card">
-        <div class="header-utility">
-          <button class="circle-btn search-btn" aria-label="Search">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 015.94 12.56l4.17 4.17 1.41-1.41-4.17-4.17A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z"/></svg>
-          </button>
-          <button class="circle-btn close-btn" aria-label="Close">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 6.4L17.6 17.6M17.6 6.4L6.4 17.6"/></svg>
-          </button>
-        </div>
+    <button class="switch" aria-label="Switch tokens">↕</button>
 
-        <div class="wallet-row">
-          <div class="profile-wrap">
-            <div class="avatar avatar-pink">◉</div>
-            <div class="avatar avatar-small">8</div>
-          </div>
+    <section class="swap-card receive">
+      <div class="label-line"><span>You Receive</span><span class="balance">▣ 187.52 USDT</span></div>
+      <div class="token-line">
+        <div class="token"><span class="token-logo usdt">₮</span><strong>USDT</strong><span>⌄</span></div>
+        <div class="numbers"><strong>6.7345108344</strong><small>≈ 28,197.64 USD</small></div>
+      </div>
+    </section>
 
-          <div class="wallet-addr">
-            <span class="token-dot blue"></span>
-            <span class="addr-text">0xfK07...8336</span>
-            <span class="caret">⌄</span>
-          </div>
+    <div class="details"><div>🔥 Fee: <b>0.255851 USDT</b>⌄</div><div><i></i> 1 BNB = 673.45108 (198,98 USD)</div></div>
+    <div class="slider"><button id="handle">⌄</button><span id="sliderText">Slide to Swap</span><b>››</b></div>
+    <div class="powered">powered by <b>kima</b></div>
 
-          <button class="circle-btn icon-btn black" aria-label="Open wallet">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12a3 3 0 013 3v7a3 3 0 01-3 3H6a3 3 0 01-3-3V10a3 3 0 013-3zm0 2a1 1 0 00-1 1v7a1 1 0 001 1h12a1 1 0 001-1v-7a1 1 0 00-1-1H6zm12-4h-9a2 2 0 00-2 2h13a2 2 0 00-2-2z"/></svg>
-          </button>
-        </div>
-
-        <h1>Swap</h1>
-
-        <section class="swap-panel">
-          <div class="swap-row pay-row">
-            <div class="row-label">You Pay</div>
-            <button class="max-btn">Max</button>
-          </div>
-
-          <div class="currency-row">
-            <div class="token-chip">
-              <span class="token-icon bnb-icon">₿</span>
-              <span class="token-name">BNB</span>
-              <span class="caret-sm">⌄</span>
-            </div>
-
-            <div class="amount-block">
-              <div class="amount">0.01</div>
-              <div class="usd">≈ 6,247.70 USD</div>
-            </div>
-          </div>
-
-          <div class="swap-mid">
-            <button class="mid-swap" aria-label="Swap direction">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h9v2h-9v2L3 8l4-3v2zm10 10H8v-2h9v-2l4 3-4 3v-2z"/></svg>
-            </button>
-          </div>
-
-          <div class="swap-row receive-row">
-            <div class="row-label">You Receive</div>
-            <div class="usd-inline">≈ 187.52 USDT</div>
-          </div>
-
-          <div class="currency-row receive-box">
-            <div class="token-chip usdt-chip">
-              <span class="token-icon usdt-icon">₮</span>
-              <span class="token-name">USDT</span>
-              <span class="caret-sm">⌄</span>
-            </div>
-
-            <div class="amount-block">
-              <div class="amount">6.7345108344</div>
-              <div class="usd">≈ 28,197.64 USD</div>
-            </div>
-          </div>
-        </section>
-
-        <div class="fee-summary">
-          <div class="fee-row">
-            <span class="fee-flame">✦</span>
-            <span>Fee:</span>
-            <strong>0.255851 USDT</strong>
-            <span class="caret">⌄</span>
-          </div>
-          <div class="rate-row">
-            <span class="dot"></span>
-            <span>1 BNB = 673.45108 (198,98 USD)</span>
-          </div>
-        </div>
-
-        <div class="slider-shell">
-          <div class="slider-track" id="sliderTrack">
-            <div class="slider-knob" id="sliderKnob" aria-label="Slide to swap">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.7 12.5l2.9 2.9 5.7-6.4 1.5 1.3-7.2 8.1-4.4-4.4 1.5-1.5z"/></svg>
-            </div>
-            <div class="slider-text">Slide to Swap</div>
-            <div class="slider-arrows">››</div>
-          </div>
-        </div>
-
-        <div class="powered-by">powered by <span>kima</span></div>
-
-        <nav class="bottom-nav" aria-label="Main menu">
-          <button class="nav-item active">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l7.2 6.2v8.7c0 1.1-.9 2-2 2H6.8c-1.1 0-2-.9-2-2V8.7L12 2.5zm0 2.5L7 8v8.7c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V8l-5-3zm-1 3h2v4h4v2h-6V8z"/></svg>
-            <span>Stake</span>
-          </button>
-          <button class="nav-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18.5V9.5h3v9h-3zm5-7V5.5h3v13h-3v-13zm5 4v-4h3v4h-3z"/></svg>
-            <span>Portfolio</span>
-          </button>
-          <button class="nav-item current">
-            <div class="swap-nav-badge">↕</div>
-            <span>Swap</span>
-          </button>
-          <button class="nav-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17.5V6.5h2v11H5zm6-3v-8h2v8h-2zm6 5v-13h2v13h-2z"/></svg>
-            <span>Liquidity</span>
-          </button>
-          <button class="nav-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.4 13a7.37 7.37 0 01.1 1.2l1.8 1.4-1.7 2.9-2.1-.7a7.6 7.6 0 01-2.1 1.2l-.4 2.1h-3.8l-.4-2.1a7.6 7.6 0 01-2.1-1.2l-2.1.7-1.7-2.9 1.8-1.4a7.3 7.3 0 01.1-1.2L2.4 11l1.7-2.9 2.1.7a7.6 7.6 0 012.1-1.2l.4-2.1h3.8l.4 2.1c.7.3 1.4.7 2.1 1.2l2.1-.7 1.7 2.9-1.8 1.4zm-7.4 3.3a4.6 4.6 0 100-9.2 4.6 4.6 0 000 9.2zm0-2a2.6 2.6 0 110-5.2 2.6 2.6 0 010 5.2z"/></svg>
-            <span>Settings</span>
-          </button>
-        </nav>
-      </main>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+    <nav>
+      <a><span>◉</span>Stake</a><a><span>✣</span>Portfolio</a><a class="selected"><strong>↕</strong>Swap</a><a><span>▥</span>Liquidity</a><a><span>⬡</span>Settings</a>
+    </nav>
+  </main>
+  <script src="script.js"></script>
+</body>
 </html>
