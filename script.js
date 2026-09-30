@@ -1,1 +1,50 @@
-const handle=document.getElementById('handle');const slider=document.querySelector('.slider');const text=document.getElementById('sliderText');let dragging=false,start=0,left=0;handle.addEventListener('pointerdown',e=>{dragging=true;start=e.clientX;left=handle.offsetLeft;handle.setPointerCapture(e.pointerId)});handle.addEventListener('pointermove',e=>{if(!dragging)return;const max=slider.clientWidth-handle.offsetWidth-8;handle.style.left=Math.max(8,Math.min(max,left+e.clientX-start))+'px'});handle.addEventListener('pointerup',()=>{dragging=false;const max=slider.clientWidth-handle.offsetWidth-8;if(handle.offsetLeft>max*.75){handle.style.left=max+'px';text.textContent='Swap Complete'}else{handle.style.left='8px';text.textContent='Slide to Swap'}});
+const slider = document.querySelector('.slider');
+const handle = document.getElementById('sliderHandle');
+const text = document.getElementById('sliderText');
+
+let isDragging = false;
+let startX = 0;
+let offsetX = 0;
+
+handle.addEventListener('pointerdown', (e) => {
+  isDragging = true;
+  startX = e.clientX;
+  offsetX = handle.offsetLeft;
+  handle.setPointerCapture(e.pointerId);
+  handle.style.transition = 'none';
+});
+
+document.addEventListener('pointermove', (e) => {
+  if (!isDragging) return;
+  
+  const maxDistance = slider.clientWidth - handle.offsetWidth - 8;
+  let newLeft = offsetX + (e.clientX - startX);
+  newLeft = Math.max(8, Math.min(newLeft, maxDistance));
+  
+  handle.style.left = newLeft + 'px';
+});
+
+document.addEventListener('pointerup', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  handle.style.transition = 'left 0.3s ease';
+  
+  const maxDistance = slider.clientWidth - handle.offsetWidth - 8;
+  const threshold = maxDistance * 0.8;
+  
+  if (handle.offsetLeft >= threshold) {
+    handle.style.left = maxDistance + 'px';
+    text.textContent = 'Swap Complete';
+    slider.style.background = '#2a2a2a';
+  } else {
+    handle.style.left = '8px';
+    text.textContent = 'Slide to Swap';
+    slider.style.background = '#1a1a1a';
+  }
+});
+
+function swapTokens() {
+  handle.style.left = '8px';
+  text.textContent = 'Slide to Swap';
+  slider.style.background = '#1a1a1a';
+}

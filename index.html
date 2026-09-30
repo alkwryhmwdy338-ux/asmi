@@ -3,126 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swap - asmi</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <title>Swap</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="phone-container">
-    <header class="status-bar">
-      <div class="status-left">9:41</div>
-      <div class="status-right">
+  <div class="phone">
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="time">9:41</span>
+      <div class="icons">
         <span class="icon-signal"></span>
         <span class="icon-wifi"></span>
         <span class="icon-battery"></span>
       </div>
-    </header>
-
-    <div class="browser-bar">
-      <button class="browser-btn menu"></button>
-      <button class="browser-btn add">+</button>
-      <div class="url-bar">fbcgol.com</div>
-      <button class="browser-btn home"></button>
     </div>
 
-    <main class="app-content">
-      <!-- Header Section -->
-      <div class="header-section">
-        <div class="user-profile">
-          <div class="avatar-group">
-            <div class="avatar avatar-1"></div>
-            <div class="avatar avatar-2">8</div>
-            <div class="avatar avatar-3">C</div>
-          </div>
-          <div class="wallet-address">
-            <span>0xfK07...8336</span>
-            <span class="chevron">⌄</span>
-          </div>
-          <button class="wallet-btn"></button>
-        </div>
+    <!-- Browser Bar -->
+    <div class="browser-bar">
+      <button class="btn-menu">☰</button>
+      <button class="btn-add">+</button>
+      <div class="url-bar">fbcgol.com</div>
+      <button class="btn-home">⌂</button>
+    </div>
 
-        <div class="tool-buttons">
-          <button class="tool-btn search"></button>
-          <button class="tool-btn close"></button>
+    <!-- App Content -->
+    <main class="app">
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <div class="avatars">
+          <div class="avatar avatar-1"></div>
+          <div class="avatar avatar-2">8</div>
+          <div class="avatar avatar-3">C</div>
         </div>
+        <div class="wallet-info">
+          <span>0xfK07...8336</span>
+          <span class="dropdown">▾</span>
+        </div>
+        <button class="wallet-icon">📱</button>
+      </div>
+
+      <!-- Tools -->
+      <div class="tools">
+        <button class="tool-btn search">🔍</button>
+        <button class="tool-btn close">✕</button>
       </div>
 
       <!-- Title -->
-      <h1 class="page-title">Swap</h1>
+      <h1>Swap</h1>
 
-      <!-- Pay Section -->
-      <div class="swap-card pay-card">
+      <!-- Pay Card -->
+      <div class="card pay-card">
         <div class="card-header">
-          <span class="label">You Pay</span>
-          <div class="balance-info">
-            <span class="package-icon">📦</span>
-            <span>52.34 BNB</span>
-            <button class="max-btn">Max</button>
-          </div>
+          <span>You Pay</span>
+          <div class="balance">📦 52.34 BNB <button class="max-btn">Max</button></div>
         </div>
-        <div class="token-display">
-          <div class="token-left">
-            <div class="token-icon bnb-icon">♦</div>
-            <span class="token-name">BNB</span>
-            <span class="chevron">⌄</span>
+        <div class="token-row">
+          <div class="token">
+            <div class="token-logo bnb">◆</div>
+            <span class="name">BNB</span>
+            <span class="dropdown">▾</span>
           </div>
-          <div class="token-right">
+          <div class="amount-box">
             <div class="amount">0.01</div>
-            <div class="usd-value">≈ 6,247.70 USD</div>
+            <div class="usd">≈ 6,247.70 USD</div>
           </div>
         </div>
       </div>
 
       <!-- Swap Button -->
-      <button class="swap-btn" id="swapBtn">⇅</button>
+      <button class="swap-button" onclick="swapTokens()">⇅</button>
 
-      <!-- Receive Section -->
-      <div class="swap-card receive-card">
+      <!-- Receive Card -->
+      <div class="card receive-card">
         <div class="card-header">
-          <span class="label">You Receive</span>
-          <div class="balance-info receive-info">
-            <span class="package-icon">📦</span>
-            <span>187.52 USDT</span>
-          </div>
+          <span>You Receive</span>
+          <div class="balance receive">📦 187.52 USDT</div>
         </div>
-        <div class="token-display">
-          <div class="token-left">
-            <div class="token-icon usdt-icon">₮</div>
-            <span class="token-name">USDT</span>
-            <span class="chevron">⌄</span>
+        <div class="token-row">
+          <div class="token">
+            <div class="token-logo usdt">₮</div>
+            <span class="name">USDT</span>
+            <span class="dropdown">▾</span>
           </div>
-          <div class="token-right">
+          <div class="amount-box">
             <div class="amount">6.7345108344</div>
-            <div class="usd-value">≈ 28,197.64 USD</div>
+            <div class="usd">≈ 28,197.64 USD</div>
           </div>
         </div>
       </div>
 
-      <!-- Fee Section -->
-      <div class="fee-section">
-        <div class="fee-row">
-          <span class="fire-icon">🔥</span>
-          <span>Fee:</span>
-          <strong>0.255851 USDT</strong>
-          <span class="chevron">⌄</span>
-        </div>
+      <!-- Fee Info -->
+      <div class="fee-info">
+        🔥 Fee: <strong>0.255851 USDT</strong> ▾
       </div>
 
       <!-- Slider -->
-      <div class="slider-wrapper">
-        <div class="slider" id="slider">
-          <button class="slider-handle" id="sliderHandle">⬆</button>
-          <span class="slider-text" id="sliderText">Slide to Swap</span>
-          <span class="slider-arrows">>></span>
-        </div>
+      <div class="slider">
+        <button class="slider-handle" id="sliderHandle">⬆</button>
+        <span class="slider-text" id="sliderText">Slide to Swap</span>
+        <span class="slider-arrows">>></span>
       </div>
 
       <!-- Footer -->
-      <div class="footer-text">
-        powered by <strong>kima</strong>
-      </div>
+      <div class="footer">powered by <strong>kima</strong></div>
     </main>
   </div>
 
-  <script src="scripts/slider.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
