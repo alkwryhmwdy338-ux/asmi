@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Swap</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;font-family:Arial,Helvetica,sans-serif;-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent}
+body{background:#dfe6f8}
+main{min-height:100vh;padding-bottom:105px}
+.content{height:calc(100vh - 105px);display:grid;place-items:center;font-size:46px;font-weight:700;color:#111}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;height:105px;padding:8px 24px max(10px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);align-items:end;background:#dfe6f8;z-index:10}
+.nav-item{height:82px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:7px;text-decoration:none;color:#9ca5b7;font-size:15px;font-weight:500;line-height:1}
+.nav-item.active{color:#111}.nav-item:focus,.nav-item:active{outline:none;background:transparent;-webkit-tap-highlight-color:transparent}
+.nav-item>svg{width:32px;height:32px;display:block}
+.swap-circle{width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-bottom:-1px}
+.swap-circle svg{width:34px;height:34px;display:block}
+@media(max-width:380px){.bottom-nav{padding-left:10px;padding-right:10px}.nav-item{font-size:13px}.swap-circle{width:58px;height:58px}}
+
+.swap-screen{min-height:calc(100vh - 105px);padding:45px 12px 25px;overflow:hidden}
+.swap-title{text-align:center;font-size:30px;font-weight:700;color:#111;margin:0 0 22px}
+.swap-box{position:relative;width:min(100%,560px);margin:auto}
+.swap-card{position:relative;background:#fff;border-radius:38px;min-height:220px;padding:25px 20px;overflow:hidden}
+.swap-card+.swap-card{margin-top:12px}
+.swap-label{color:#7d899a;font-size:18px}
+.swap-balance{position:absolute;right:16px;top:22px;display:flex;align-items:center;gap:7px;color:#7d899a;font-size:15px}
+.wallet-mini{width:22px;height:17px;border-radius:5px;background:#8e99a8}
+.max-btn{border:0;background:#000;color:#fff;border-radius:22px;padding:8px 14px;font-size:15px;font-weight:700}
+.pay-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:25px}
+.asset-image{width:135px;height:105px;object-fit:contain;mix-blend-mode:multiply}
+.pay-right{display:flex;align-items:center;gap:10px}
+.mastercard{width:70px;height:55px;object-fit:contain}
+.amount-wrap{text-align:right}.amount{font-size:40px;font-weight:700;line-height:1;color:#080808}
+.usd{margin-top:7px;color:#7d899a;font-size:17px}.usd strong{color:#080808;font-size:29px}
+.receive-card{min-height:245px}.receive-image{display:block;width:290px;height:165px;object-fit:contain;margin:12px auto 0;mix-blend-mode:multiply}
+.swap-middle{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:#e9edf8;display:grid;place-items:center}
+.swap-middle svg{width:38px;height:38px}
+.fee{text-align:center;color:#7d899a;font-size:15px;margin-top:18px}.fee b{color:#111}
+.rate{text-align:center;color:#7d899a;font-size:14px;margin-top:8px}
+
+</style>
+</head>
+<body>
+<main>
+<section class="swap-screen">
+<h1 class="swap-title">Swap</h1>
+<div class="swap-box">
+<div class="swap-card">
+<div class="swap-label">You Pay</div>
+<div class="swap-balance"><span class="wallet-mini"></span><span>52.34 BNB</span><button class="max-btn">Max</button></div>
+<div class="pay-row">
+<img class="asset-image" src="assets/pay-image.jpg">
+<div class="pay-right"><img class="mastercard" src="assets/mastercard.jpg"><div class="amount-wrap"><div class="amount">0.00</div><div class="usd"><strong>000</strong> USD</div></div></div>
+</div>
+</div>
+<div class="swap-middle"><svg viewBox="0 0 34 34"><path d="M10 7v14l-3-3-2 2 6 6 6-6-2-2-3 3V7Z" fill="#111"/><path d="M24 27V13l3 3 2-2-6-6-6 6 2 2 3-3v14Z" fill="#111"/></svg></div>
+<div class="swap-card receive-card">
+<div class="swap-label">You Receive</div>
+<img class="receive-image" src="assets/receive-image.jpg">
+</div>
+</div>
+<div class="fee">🔥 Fee: <b>0.255851 USDT</b></div>
+<div class="rate">◯ 1 BNB = 673.45108 (198,98 USD)</div>
+</section>
+<nav class="bottom-nav"><a class="nav-item " href="stake.html"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="#9ca5b7"/><path d="M16 8.5 23.5 16 16 23.5 8.5 16Z" fill="#dfe6f8"/></svg><span>Stake</span></a><a class="nav-item " href="portfolio.html"><svg viewBox="0 0 32 32"><circle cx="16" cy="7" r="5" fill="#9ca5b7"/><circle cx="9" cy="20" r="5" fill="#9ca5b7"/><circle cx="23" cy="20" r="5" fill="#9ca5b7"/></svg><span>Portfolio</span></a><a class="nav-item active" href="swap.html"><span class="swap-circle"><svg viewBox="0 0 34 34"><path d="M10 7v14l-3-3-2 2 6 6 6-6-2-2-3 3V7Z" fill="#111"/><path d="M24 27V13l3 3 2-2-6-6-6 6 2 2 3-3v14Z" fill="#111"/></svg></span><span>Swap</span></a><a class="nav-item " href="liquidity.html"><svg viewBox="0 0 32 32"><rect x="4" y="14" width="6" height="14" rx="3" fill="#9ca5b7"/><rect x="13" y="5" width="6" height="23" rx="3" fill="#9ca5b7"/><rect x="22" y="10" width="6" height="18" rx="3" fill="#9ca5b7"/></svg><span>Liquidity</span></a><a class="nav-item " href="settings.html"><svg viewBox="0 0 32 32"><path d="M10 3.5h12L28.5 10v12L22 28.5H10L3.5 22V10Z" fill="#9ca5b7"/><circle cx="16" cy="16" r="5" fill="#dfe6f8"/></svg><span>Settings</span></a></nav>
+</main>
+</body>
+</html>
