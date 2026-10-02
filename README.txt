@@ -1,0 +1,1 @@
+Complete isolated multi-page project. Bottom navigation is icon-only with transparent/frosted blur background.
