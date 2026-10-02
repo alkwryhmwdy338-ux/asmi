@@ -1,0 +1,17 @@
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#fff;color:#111}
+body{padding-bottom:108px;-webkit-tap-highlight-color:transparent}
+button,a{-webkit-tap-highlight-color:transparent}
+.bottom-nav{position:fixed;z-index:10;left:10px;right:10px;bottom:8px;height:100px;border-radius:30px;background:rgba(255,255,255,.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:space-around;padding:5px 4px}
+.nav-item{width:74px;height:88px;border-radius:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-decoration:none;color:#8793a9;font-size:30px;outline:none;background:transparent}
+.nav-item.active{background:transparent;color:#8793a9}
+.ico{display:block;width:31px;height:31px;position:relative;flex:0 0 31px}
+.nav-label{font-size:13px;font-weight:600;line-height:1;color:#8793a9;white-space:nowrap}
+.nav-item.active .nav-label{color:#8793a9}
+.diamond{border-radius:50%;background:#8793a9;position:relative}
+.diamond:after{content:'';position:absolute;inset:8px;background:#fff;transform:rotate(45deg)}
+.dots:before{content:'•••';font-size:42px;line-height:18px;letter-spacing:-2px}
+.swap{font-size:38px;line-height:31px}
+.bars:before{content:'▮▮▮';font-size:25px;letter-spacing:-5px}
+.gear{border:8px solid #8793a9;border-radius:9px}
+@media(max-width:420px){.nav-item{width:68px}.nav-label{font-size:12px}}
